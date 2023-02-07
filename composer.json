@@ -1,0 +1,19 @@
+{
+    "name": "studio1902/statamic-peak-browser-appearance",
+    "autoload": {
+        "psr-4": {
+            "Studio1902\\PeakBrowserAppearance\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Peak Browser Appearance",
+            "description": "Statamic Peak Browser Appearance addon"
+        },
+        "laravel": {
+            "providers": [
+                "Studio1902\\PeakBrowserAppearance\\ServiceProvider"
+            ]
+        }
+    }
+}
