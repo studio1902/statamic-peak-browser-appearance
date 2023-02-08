@@ -2,10 +2,17 @@
 
 namespace Studio1902\PeakBrowserAppearance;
 
+use Statamic\Events\GlobalSetSaved;
 use Statamic\Providers\AddonServiceProvider;
+use Studio1902\PeakBrowserAppearance\Listeners\GenerateFavicons;
 
 class ServiceProvider extends AddonServiceProvider
 {
+    protected $listen = [
+        GlobalSetSaved::class => [
+            GenerateFavicons::class,
+        ],
+    ];
     protected $routes = [
         'web' => __DIR__ . '/../routes/web.php',
     ];
