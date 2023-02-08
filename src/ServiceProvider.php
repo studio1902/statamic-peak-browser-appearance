@@ -1,6 +1,6 @@
 <?php
 
-namespace Studio1902\StatamicPeakBrowserAppearance;
+namespace Studio1902\PeakBrowserAppearance;
 
 use Statamic\Providers\AddonServiceProvider;
 
