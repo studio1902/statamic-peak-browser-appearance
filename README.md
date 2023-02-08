@@ -10,13 +10,13 @@ Maintaining Peak demands a lot of my time and it probably saves you a lot. Your 
 
 ## How to Install
 
-This addon is automatically installed when you install Peak via the Statamic CLI. If you want to install this addon manually on on older Peak install run:
+This addon is automatically installed when you install Peak via the Statamic CLI. If you want to install this addon manually on an older Peak install run:
 
 ``` bash
 composer require studio1902/statamic-peak-browser-appearance
 ```
 
-You will have to manually link all SEO fieldsets to this ones in this addon.
+You will have to manually link all Browser Appearance fieldsets to this ones in this addon.
 
 ## Contributing
 Contributions and discussions are always welcome, no matter how large or small. Treat each other with respect. Read the [Code of Conduct](https://github.com/studio1902/statamic-peak-commands/blob/main/.github/CODE_OF_CONDUCT.md).
