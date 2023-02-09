@@ -1,5 +1,5 @@
 # Changelog
 
-## v1.0 (Unreleased)
+## v1.0 (2022-02-09)
 
 - Initial release.
