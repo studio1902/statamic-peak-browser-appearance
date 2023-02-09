@@ -3,7 +3,7 @@
     @desc The browser appearance snippet for the `<head>` to include browser specific meta tags Peak generated favicons.
 #}}
 
-<!-- /snippets/_browser_appearance.antlers.html -->
+<!-- statamic-peak-browser-appearance::snippets/_browser_appearance.antlers.html -->
 {{ if browser_appearance:disable_telephone_detection }}
     <meta name="format-detection" content="telephone=no">
 {{ /if }}
@@ -52,4 +52,4 @@
 
 {{# A yielded JS section essential when you use the theme toggle (dark mode) preset. #}}
 {{ yield:theme_toggle }}
-<!-- End: /snippets/_browser_appearance.antlers.html -->
+<!-- End: statamic-peak-browser-appearance::snippets/_browser_appearance.antlers.html -->
