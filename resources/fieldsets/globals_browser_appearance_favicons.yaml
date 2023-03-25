@@ -1,13 +1,6 @@
 title: 'Globals Browser Appearance: Favicons'
 fields:
     -
-      handle: section_favicons
-      field:
-        type: section
-        listable: hidden
-        display: Favicons
-        instructions: 'Configure favicons so they can be automatically generated.'
-    -
       handle: use_favicons
       field:
         display: 'Use favicons'
