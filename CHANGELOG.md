@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0 (unreleased)
+## v2.0 (2023-05-09)
 
 ### What's new
 - Statamic v4 support by splitting fieldsets into sections. #2 by @robdekort
