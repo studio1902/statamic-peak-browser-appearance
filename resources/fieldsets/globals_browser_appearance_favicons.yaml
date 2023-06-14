@@ -25,19 +25,19 @@ fields:
         if:
           use_favicons: 'equals true'
     -
-      handle: ios_color
+      handle: background
       field:
         theme: nano
         lock_opacity: true
         default_color_mode: HEXA
         color_modes:
           - hex
-        display: iOS
+        display: Background
         type: color
         icon: color
         default: '#ffffff'
         listable: hidden
-        instructions: 'The icon for iOS (_apple-touch-icon_) will use the full color SVG with this color as a background.'
+        instructions: 'The PWA-icons will use the full color SVG with this color as a background.'
         instructions_position: below
         width: 50
         validate:

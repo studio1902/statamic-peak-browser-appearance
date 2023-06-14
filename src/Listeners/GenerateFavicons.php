@@ -36,10 +36,10 @@ class GenerateFavicons
         }
 
         $svg = $globals->inDefaultSite()->get('svg');
-        $iOSBackground = $globals->inDefaultSite()->get('ios_color');
+        $background = $globals->inDefaultSite()->get('background');
 
-        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/apple-touch-icon.png'), 180, 180, $iOSBackground, 15);
-        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/android-chrome-512x512.png'), 512, 512, 'transparent', false);
+        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/icon-180.png'), 180, 180, $background, 15);
+        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/icon-512.png'), 512, 512, $background, 15);
         $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/favicon-16x16.png'), 16, 16, 'transparent', false);
         $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/favicon-32x32.png'), 32, 32, 'transparent', false);
 

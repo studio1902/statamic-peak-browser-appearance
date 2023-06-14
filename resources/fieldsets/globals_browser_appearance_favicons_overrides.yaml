@@ -16,27 +16,27 @@ fields:
         validate:
           - 'mimes:png'
     -
-      handle: apple_touch_icon
+      handle: override_180
       field: common.image
       config:
         container: favicons
         restrict: true
         localizable: false
-        display: 'Apple touch icon'
-        instructions: 'A 180x180 PNG image used on iOS devices. Will be focal cropped to this dimension.'
+        display: 'Override 180x180'
+        instructions: 'A 180x180 PNG image override icon for PWA''s. Will be focal cropped to this dimension.'
         instructions_position: below
         width: 33
         if:
           use_favicons: 'equals true'
     -
-      handle: android_chrome
+      handle: override_512
       field: common.image
       config:
         container: favicons
         restrict: true
         localizable: false
         display: 'Android Chrome icon'
-        instructions: 'A 512x512 PNG image image used on Android devices. Will be focal cropped to this dimension.'
+        instructions: 'A 512x512 PNG image override icon for PWA''s. Will be focal cropped to this dimension.'
         instructions_position: below
         width: 33
         if:
