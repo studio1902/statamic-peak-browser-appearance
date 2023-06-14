@@ -17,6 +17,10 @@ class ServiceProvider extends AddonServiceProvider
         'web' => __DIR__ . '/../routes/web.php',
     ];
 
+    protected $updateScripts = [
+        \Studio1902\PeakBrowserAppearance\Updates\UpdateBrowserAppearanceGlobals::class,
+    ];
+
     public function bootAddon()
     {
         $this->registerPublishableFieldsets();
