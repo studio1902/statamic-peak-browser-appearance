@@ -27,3 +27,12 @@ fields:
         width: 33
         instructions: 'Disables address detection.'
         listable: hidden
+    -
+      handle: display_standalone
+      field:
+        display: 'Display standalone'
+        type: toggle
+        icon: toggle
+        width: 33
+        instructions: 'Run PWA''s in a standalone browser mode.'
+        listable: hidden
