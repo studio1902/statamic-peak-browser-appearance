@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.1.1 (2023-06-14)
+
+### What's fixed
+- Fix error in webmanifest file. a503c1d1 by @robdekort
+
 ## v3.1 (2023-06-14)
 
 ### What's new
