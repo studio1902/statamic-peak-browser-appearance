@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.1 (2023-06-14)
+
+### What's new
+- Add `name` property to webmanifest. babf2ff6 by @robdekort
+
 ## v3.0 (2023-06-14)
 
 ### What's changed
