@@ -4,6 +4,7 @@
 #}}
 
 {
+    "name": "{{ seo:site_name ?? config:app:name }}"
     "display": "{{ browser_appearance:display_standalone ? 'standalone' : 'fullscreen' }}"{{ if browser_appearance:use_theme_color }},
     "theme_color": "{{ browser_appearance:theme_color }}"{{ /if }}{{ if browser_appearance:use_favicons }},
     "icons": [
