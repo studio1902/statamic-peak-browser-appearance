@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.2 (2023-07-03)
+
+### What's new
+- Ability to utilize the favicons disk for generating and saving favicons. #6 by @sandergo
+
 ## v3.1.1 (2023-06-14)
 
 ### What's fixed
