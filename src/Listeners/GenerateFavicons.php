@@ -5,6 +5,8 @@ namespace Studio1902\PeakBrowserAppearance\Listeners;
 use Illuminate\Support\Facades\Artisan;
 use Statamic\Events\GlobalSetSaved;
 use Statamic\Globals\GlobalSet;
+use Illuminate\Support\Facades\Storage;
+use Statamic\Facades\URL;
 
 class GenerateFavicons
 {
@@ -38,17 +40,17 @@ class GenerateFavicons
         $svg = $globals->inDefaultSite()->get('svg');
         $background = $globals->inDefaultSite()->get('background');
 
-        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/icon-180.png'), 180, 180, $background, 15);
-        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/icon-512.png'), 512, 512, $background, 15);
-        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/favicon-16x16.png'), 16, 16, 'transparent', false);
-        $this->createThumbnail(public_path('favicons/') . $svg, public_path('favicons/favicon-32x32.png'), 32, 32, 'transparent', false);
+        $this->createThumbnail($svg, 'icon-180.png', 180, 180, $background, 15);
+        $this->createThumbnail($svg, 'icon-512.png', 512, 512, $background, 15);
+        $this->createThumbnail($svg, 'favicon-16x16.png', 16, 16, 'transparent', false);
+        $this->createThumbnail($svg, 'favicon-32x32.png', 32, 32, 'transparent', false);
 
         Artisan::call('cache:clear');
     }
 
     private function createThumbnail($import, $export, $width, $height, $background, $border)
     {
-        $svg = file_get_contents($import);
+        $svg = file_get_contents(URL::makeAbsolute(Storage::disk('favicons')->url($import)));
         $svgObj = simplexml_load_string($svg);
         $viewBox = explode(' ', $svgObj['viewBox']);
         $viewBoxWidth = $viewBox[2];
@@ -81,7 +83,7 @@ class GenerateFavicons
         }
 
         $im->setImageFormat('png32');
-        file_put_contents($export, $im->getImageBlob());
+        Storage::disk('favicons')->put($export, $im->getImageBlob());
         $im->clear();
         $im->destroy();
     }
