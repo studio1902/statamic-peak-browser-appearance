@@ -11,5 +11,5 @@ Site::all()->each(function (\Statamic\Sites\Site $site) {
     Route::statamic(URL::tidy($relativeSiteUrl . '/site.webmanifest'), 'statamic-peak-browser-appearance::manifest/manifest', [
         'layout' => null,
         'content_type' => 'application/json'
-    ]);
+    ])->name('manifest.' . $site->handle());
 });
