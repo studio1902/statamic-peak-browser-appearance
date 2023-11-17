@@ -4,9 +4,11 @@ namespace Studio1902\PeakBrowserAppearance\Listeners;
 
 use Illuminate\Support\Facades\Artisan;
 use Statamic\Events\GlobalSetSaved;
+use Statamic\Facades\Site;
 use Statamic\Globals\GlobalSet;
 use Illuminate\Support\Facades\Storage;
 use Statamic\Facades\URL;
+use Statamic\Globals\Variables;
 
 class GenerateFavicons
 {
@@ -18,8 +20,7 @@ class GenerateFavicons
      */
     private function shouldHandle(GlobalSet $globals): bool
     {
-        return $globals->handle() === 'browser_appearance'
-            && $globals->inDefaultSite()->get('use_favicons');
+        return $globals->handle() === 'browser_appearance';
     }
 
     /**
@@ -37,13 +38,23 @@ class GenerateFavicons
             return;
         }
 
-        $svg = $globals->inDefaultSite()->get('svg');
-        $background = $globals->inDefaultSite()->get('background');
+        Site::all()?->each(function (\Statamic\Sites\Site $site) use ($globals) {
+            /** @var Variables $set */
+            $set = $globals->in($site->handle());
 
-        $this->createThumbnail($svg, 'icon-180.png', 180, 180, $background, 15);
-        $this->createThumbnail($svg, 'icon-512.png', 512, 512, $background, 15);
-        $this->createThumbnail($svg, 'favicon-16x16.png', 16, 16, 'transparent', false);
-        $this->createThumbnail($svg, 'favicon-32x32.png', 32, 32, 'transparent', false);
+            // Skip sites which do not use favicons
+            if (!$set->value('use_favicons')) {
+                return;
+            }
+
+            $svg = $set->value('svg');
+            $background = $set->value('background');
+
+            $this->createThumbnail($svg, $site->handle().'/icon-180.png', 180, 180, $background, 15);
+            $this->createThumbnail($svg, $site->handle().'/icon-512.png', 512, 512, $background, 15);
+            $this->createThumbnail($svg, $site->handle().'/favicon-16x16.png', 16, 16, 'transparent', false);
+            $this->createThumbnail($svg, $site->handle().'/favicon-32x32.png', 32, 32, 'transparent', false);
+        });
 
         Artisan::call('cache:clear');
     }
