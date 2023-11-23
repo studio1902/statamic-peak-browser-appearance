@@ -13,12 +13,18 @@ class ServiceProvider extends AddonServiceProvider
             GenerateFavicons::class,
         ],
     ];
+
+    protected $commands = [
+        \Studio1902\PeakBrowserAppearance\Commands\GenerateFavicons::class,
+    ];
+
     protected $routes = [
         'web' => __DIR__ . '/../routes/web.php',
     ];
 
     protected $updateScripts = [
         \Studio1902\PeakBrowserAppearance\Updates\UpdateBrowserAppearanceGlobals::class,
+        \Studio1902\PeakBrowserAppearance\Updates\UpdateFaviconsPath::class,
     ];
 
     public function bootAddon()
