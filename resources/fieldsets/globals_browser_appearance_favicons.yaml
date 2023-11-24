@@ -15,7 +15,7 @@ fields:
       config:
         container: favicons
         restrict: true
-        localizable: false
+        localizable: true
         display: 'Favicon SVG'
         instructions: 'The full color SVG favicon for [modern browsers](https://caniuse.com/link-icon-svg).'
         instructions_position: below
@@ -35,6 +35,7 @@ fields:
         display: Background
         type: color
         icon: color
+        localizable: true
         default: '#ffffff'
         listable: hidden
         instructions: 'The PWA-icons will use the full color SVG with this color as a background.'
