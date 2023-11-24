@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.3.0 (2023-11-24)
+
+### What's new
+- The ability to use different favicons per (multi)site. #8 by @marcorieser
+- Localizable favicon fields. 77738088 by @robdekort
+
 ## v3.2 (2023-07-03)
 
 ### What's new
