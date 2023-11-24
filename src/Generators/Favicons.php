@@ -13,7 +13,9 @@ class Favicons
 {
     public static function generate(): void
     {
-        $globals = GlobalSet::findByHandle('browser_appearance');
+        if (!($globals = GlobalSet::findByHandle('browser_appearance'))) {
+            return;
+        }
 
         Site::all()?->each(function (\Statamic\Sites\Site $site) use ($globals) {
             /** @var Variables $set */
