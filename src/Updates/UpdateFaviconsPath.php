@@ -11,8 +11,7 @@ class UpdateFaviconsPath extends UpdateScript
 {
     public function shouldUpdate($newVersion, $oldVersion): bool
     {
-//        return $this->isUpdatingTo('3.3.0');
-        return true;
+        return $this->isUpdatingTo('3.3.0');
     }
 
     public function update(): void
