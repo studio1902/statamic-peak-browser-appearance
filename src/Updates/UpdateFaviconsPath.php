@@ -2,7 +2,6 @@
 
 namespace Studio1902\PeakBrowserAppearance\Updates;
 
-use Illuminate\Support\Facades\Artisan;
 use Statamic\Facades\Asset;
 use Statamic\UpdateScripts\UpdateScript;
 use Studio1902\PeakBrowserAppearance\Generators\Favicons;
