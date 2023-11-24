@@ -5,6 +5,8 @@ namespace Studio1902\PeakBrowserAppearance;
 use Statamic\Events\GlobalSetSaved;
 use Statamic\Providers\AddonServiceProvider;
 use Studio1902\PeakBrowserAppearance\Listeners\GenerateFavicons;
+use Studio1902\PeakBrowserAppearance\Updates\UpdateBrowserAppearanceGlobals;
+use Studio1902\PeakBrowserAppearance\Updates\UpdateFaviconsPath;
 
 class ServiceProvider extends AddonServiceProvider
 {
@@ -14,17 +16,13 @@ class ServiceProvider extends AddonServiceProvider
         ],
     ];
 
-    protected $commands = [
-        \Studio1902\PeakBrowserAppearance\Commands\GenerateFavicons::class,
-    ];
-
     protected $routes = [
         'web' => __DIR__ . '/../routes/web.php',
     ];
 
     protected $updateScripts = [
-        \Studio1902\PeakBrowserAppearance\Updates\UpdateBrowserAppearanceGlobals::class,
-        \Studio1902\PeakBrowserAppearance\Updates\UpdateFaviconsPath::class,
+        UpdateBrowserAppearanceGlobals::class,
+        UpdateFaviconsPath::class,
     ];
 
     public function bootAddon()

@@ -2,30 +2,18 @@
 
 namespace Studio1902\PeakBrowserAppearance\Listeners;
 
-use Illuminate\Support\Facades\Artisan;
 use Statamic\Events\GlobalSetSaved;
 use Statamic\Globals\GlobalSet;
+use Studio1902\PeakBrowserAppearance\Generators\Favicons;
 
 class GenerateFavicons
 {
-    /**
-     * Determine whether this event should be handled.
-     *
-     * @param GlobalSet $globals
-     * @return bool
-     */
     private function shouldHandle(GlobalSet $globals): bool
     {
         return $globals->handle() === 'browser_appearance';
     }
 
-    /**
-     * Handle the event.
-     *
-     * @param GlobalSetSaved $event
-     * @return void
-     */
-    public function handle(GlobalSetSaved $event)
+    public function handle(GlobalSetSaved $event): void
     {
         /** @var GlobalSet $globals */
         $globals = $event->globals;
@@ -34,6 +22,6 @@ class GenerateFavicons
             return;
         }
 
-        Artisan::call('statamic:peak:generate-favicons');
+        Favicons::generate();
     }
 }

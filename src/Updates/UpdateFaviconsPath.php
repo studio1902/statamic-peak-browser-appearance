@@ -5,15 +5,17 @@ namespace Studio1902\PeakBrowserAppearance\Updates;
 use Illuminate\Support\Facades\Artisan;
 use Statamic\Facades\Asset;
 use Statamic\UpdateScripts\UpdateScript;
+use Studio1902\PeakBrowserAppearance\Generators\Favicons;
 
 class UpdateFaviconsPath extends UpdateScript
 {
-    public function shouldUpdate($newVersion, $oldVersion)
+    public function shouldUpdate($newVersion, $oldVersion): bool
     {
-        return $this->isUpdatingTo('3.3.0');
+//        return $this->isUpdatingTo('3.3.0');
+        return true;
     }
 
-    public function update()
+    public function update(): void
     {
         $this->deleteOldIcons();
         $this->generateIcons();
@@ -31,12 +33,11 @@ class UpdateFaviconsPath extends UpdateScript
 
         Asset::whereFolder('/', 'favicons')
             ?->filter(fn(\Statamic\Assets\Asset $asset) => $icons->contains($asset->path()))
-            ->each
-            ->delete();
+            ->each->delete();
     }
 
     protected function generateIcons(): void
     {
-        Artisan::call('statamic:peak:generate-favicons');
+        Favicons::generate();
     }
 }

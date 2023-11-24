@@ -1,24 +1,17 @@
 <?php
 
-namespace Studio1902\PeakBrowserAppearance\Commands;
+namespace Studio1902\PeakBrowserAppearance\Generators;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
-use Statamic\Console\RunsInPlease;
 use Statamic\Facades\GlobalSet;
 use Statamic\Facades\Site;
 use Statamic\Facades\URL;
 use Statamic\Globals\Variables;
 
-class GenerateFavicons extends Command
+class Favicons
 {
-    use RunsInPlease;
-
-    protected $signature = 'statamic:peak:generate-favicons';
-    protected $description = 'Generate the favicons for all the sites.';
-
-    public function handle()
+    public static function generate(): void
     {
         $globals = GlobalSet::findByHandle('browser_appearance');
 
@@ -34,16 +27,16 @@ class GenerateFavicons extends Command
             $svg = $set->value('svg');
             $background = $set->value('background');
 
-            $this->createThumbnail($svg, $site->handle() . '/icon-180.png', 180, 180, $background, 15);
-            $this->createThumbnail($svg, $site->handle() . '/icon-512.png', 512, 512, $background, 15);
-            $this->createThumbnail($svg, $site->handle() . '/favicon-16x16.png', 16, 16, 'transparent', false);
-            $this->createThumbnail($svg, $site->handle() . '/favicon-32x32.png', 32, 32, 'transparent', false);
+            self::createThumbnail($svg, $site->handle() . '/icon-180.png', 180, 180, $background, 15);
+            self::createThumbnail($svg, $site->handle() . '/icon-512.png', 512, 512, $background, 15);
+            self::createThumbnail($svg, $site->handle() . '/favicon-16x16.png', 16, 16, 'transparent', false);
+            self::createThumbnail($svg, $site->handle() . '/favicon-32x32.png', 32, 32, 'transparent', false);
         });
 
         Artisan::call('cache:clear');
     }
 
-    protected function createThumbnail($import, $export, $width, $height, $background, $border): void
+    protected static function createThumbnail($import, $export, $width, $height, $background, $border): void
     {
         $svg = file_get_contents(URL::makeAbsolute(Storage::disk('favicons')->url($import)));
         $svgObj = simplexml_load_string($svg);
