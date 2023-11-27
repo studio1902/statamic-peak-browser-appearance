@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.3.1 (2023-11-27)
+
+### What's fixed
+- Register site.webmanifest routes with site specific URL. #10 by @marcorieser
+
 ## v3.3.0 (2023-11-24)
 
 ### What's new
