@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Statamic\Facades\Site;
 use Statamic\Facades\URL;
 
-$sitesCount = Site::all()->count();
+$sites = Site::all();
+$sitesCount = $sites->count();
 
-Site::all()->each(function (\Statamic\Sites\Site $site) use ($sitesCount) {
+$sites->each(function (\Statamic\Sites\Site $site) use ($sitesCount) {
     $relativeSiteUrl = URL::makeRelative($site->url());
 
     // The Manifest route to the manifest.json
