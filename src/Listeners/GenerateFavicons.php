@@ -22,6 +22,6 @@ class GenerateFavicons
             return;
         }
 
-        Favicons::generate();
+        dispatch(fn () => Favicons::generate())->afterResponse();
     }
 }
