@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.3.3 (2023-12-09)
+
+### What's improved
+- Delay generating favicons to prevent race condition issues. ba8116e6 by @robdekort
+
 ## v3.3.2 (2023-11-28)
 
 ### What's improved
