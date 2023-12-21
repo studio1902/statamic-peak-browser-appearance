@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.3.4 (2023-12-21)
+
+### What's fixed
+- Prevent manifest routes from having double handles. #12 by @marcorieser
+
 ## v3.3.3 (2023-12-09)
 
 ### What's improved
