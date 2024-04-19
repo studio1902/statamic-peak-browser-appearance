@@ -1,9 +1,9 @@
 # Changelog
 
-## v3.3.4 (2023-12-21)
+## v3.4.0 (2024-04-19)
 
 ### What's fixed
-- Prevent manifest routes from having double handles. #12 by @marcorieser
+- Support Statamic v5. #13 by @robdekort
 
 ## v3.3.3 (2023-12-09)
 
