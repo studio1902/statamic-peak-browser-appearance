@@ -2,7 +2,7 @@
 
 ## v3.4.0 (2024-04-19)
 
-### What's fixed
+### What's new
 - Support Statamic v5. #13 by @robdekort
 
 ## v3.3.3 (2023-12-09)
