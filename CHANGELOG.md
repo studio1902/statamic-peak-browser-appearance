@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.4.1 (2024-05-24)
+
+### What's fixed
+- Rewrite a needlessly complex line that prevented favicons to be generated when using local SSL. aaadbafe by @robdekort
+
 ## v3.4.0 (2024-04-19)
 
 ### What's new
