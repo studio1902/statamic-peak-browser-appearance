@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 use Statamic\Facades\GlobalSet;
 use Statamic\Facades\Site;
-use Statamic\Facades\URL;
 use Statamic\Globals\Variables;
 
 class Favicons
@@ -40,7 +39,7 @@ class Favicons
 
     protected static function createThumbnail($import, $export, $width, $height, $background, $border): void
     {
-        $svg = file_get_contents(URL::makeAbsolute(Storage::disk('favicons')->url($import)));
+        $svg = Storage::disk('favicons')->get($import);
         $svgObj = simplexml_load_string($svg);
         $viewBox = explode(' ', $svgObj['viewBox']);
         $viewBoxWidth = $viewBox[2];
