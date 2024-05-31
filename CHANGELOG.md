@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.5.0 (2024-05-31)
+
+### What's new
+- Generate and use a .ico favicon for Bing search results. 7ccd9253 by @robdekort
+
 ## v3.4.1 (2024-05-24)
 
 ### What's fixed
