@@ -28,16 +28,17 @@ class Favicons
             $svg = $set->value('svg');
             $background = $set->value('background');
 
-            self::createThumbnail($svg, $site->handle() . '/icon-180.png', 180, 180, $background, 15);
-            self::createThumbnail($svg, $site->handle() . '/icon-512.png', 512, 512, $background, 15);
-            self::createThumbnail($svg, $site->handle() . '/favicon-16x16.png', 16, 16, 'transparent', false);
-            self::createThumbnail($svg, $site->handle() . '/favicon-32x32.png', 32, 32, 'transparent', false);
+            self::createThumbnail($svg, $site->handle() . '/icon-180.png', 'png32', 180, 180, $background, 15);
+            self::createThumbnail($svg, $site->handle() . '/icon-512.png', 'png32', 512, 512, $background, 15);
+            self::createThumbnail($svg, $site->handle() . '/favicon-16x16.png', 'png32', 16, 16, 'transparent', false);
+            self::createThumbnail($svg, $site->handle() . '/favicon-32x32.png', 'png32', 32, 32, 'transparent', false);
+            self::createThumbnail($svg, $site->handle() . '/favicon.ico', 'ico', 32, 32, 'transparent', false);
         });
 
         Artisan::call('cache:clear');
     }
 
-    protected static function createThumbnail($import, $export, $width, $height, $background, $border): void
+    protected static function createThumbnail($import, $export, $format, $width, $height, $background, $border): void
     {
         $svg = Storage::disk('favicons')->get($import);
         $svgObj = simplexml_load_string($svg);
@@ -71,7 +72,7 @@ class Favicons
             $img->resizeImage($width, $height, \Imagick::FILTER_LANCZOS, 1);
         }
 
-        $img->setImageFormat('png32');
+        $img->setImageFormat($format);
         Storage::disk('favicons')->put($export, $img->getImageBlob());
         $img->clear();
         $img->destroy();
