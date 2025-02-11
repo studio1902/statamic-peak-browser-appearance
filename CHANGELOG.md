@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.6.0 (2024-12-06)
+
+### What's changed
+- Limit Statamic dependency to v5. 9456031 by @robdekort
+
 ## v3.5.0 (2024-05-31)
 
 ### What's new
