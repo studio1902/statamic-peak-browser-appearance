@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.6.1 (2025-02-11)
+
+### What's improved
+- Use `show_set_alt: false` on favicon image fields. 2ef29736 by @robdekort
+
 ## v3.6.0 (2024-12-06)
 
 ### What's changed
