@@ -24,6 +24,7 @@ fields:
           - 'required_if:use_favicons,true'
         if:
           use_favicons: 'equals true'
+        show_set_alt: false
     -
       handle: background
       field:

@@ -15,6 +15,7 @@ fields:
           use_favicons: 'equals true'
         validate:
           - 'mimes:png'
+        show_set_alt: false
     -
       handle: override_180
       field: common.image
@@ -28,6 +29,7 @@ fields:
         width: 33
         if:
           use_favicons: 'equals true'
+        show_set_alt: false
     -
       handle: override_512
       field: common.image
@@ -41,3 +43,4 @@ fields:
         width: 33
         if:
           use_favicons: 'equals true'
+        show_set_alt: false
