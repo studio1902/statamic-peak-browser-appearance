@@ -2,7 +2,7 @@
 
 namespace Studio1902\PeakBrowserAppearance;
 
-use Statamic\Events\GlobalSetSaved;
+use Statamic\Events\GlobalVariablesSaved;
 use Statamic\Providers\AddonServiceProvider;
 use Studio1902\PeakBrowserAppearance\Listeners\GenerateFavicons;
 use Studio1902\PeakBrowserAppearance\Updates\UpdateBrowserAppearanceGlobals;
@@ -11,7 +11,7 @@ use Studio1902\PeakBrowserAppearance\Updates\UpdateFaviconsPath;
 class ServiceProvider extends AddonServiceProvider
 {
     protected $listen = [
-        GlobalSetSaved::class => [
+        GlobalVariablesSaved::class => [
             GenerateFavicons::class,
         ],
     ];

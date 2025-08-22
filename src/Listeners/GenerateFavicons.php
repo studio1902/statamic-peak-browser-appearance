@@ -2,23 +2,24 @@
 
 namespace Studio1902\PeakBrowserAppearance\Listeners;
 
-use Statamic\Events\GlobalSetSaved;
-use Statamic\Globals\GlobalSet;
+use Statamic\Events\GlobalVariablesSaved;
+use Statamic\Globals\Variables;
 use Studio1902\PeakBrowserAppearance\Generators\Favicons;
 
 class GenerateFavicons
 {
-    private function shouldHandle(GlobalSet $globals): bool
+    private function shouldHandle(Variables $variables): bool
     {
-        return $globals->handle() === 'browser_appearance';
+        dump($variables->handle());
+        return $variables->globalSet()->handle() === 'browser_appearance';
     }
 
-    public function handle(GlobalSetSaved $event): void
+    public function handle(GlobalVariablesSaved $event): void
     {
-        /** @var GlobalSet $globals */
-        $globals = $event->globals;
+        /** @var Variables $globals */
+        $variables = $event->variables;
 
-        if (!$this->shouldHandle($globals)) {
+        if (!$this->shouldHandle($variables)) {
             return;
         }
 
