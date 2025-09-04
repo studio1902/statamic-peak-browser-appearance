@@ -10,7 +10,6 @@ class GenerateFavicons
 {
     private function shouldHandle(Variables $variables): bool
     {
-        dump($variables->handle());
         return $variables->globalSet()->handle() === 'browser_appearance';
     }
 
