@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.0.0 (2026-01-25)
+
+### What's new
+- Statamic v6 support. 6d975f8a by @robdekort
+- Use `GlobalVariablesSaved` event. 3d74bbe5 by @robdekort
+
 ## v3.6.1 (2025-02-11)
 
 ### What's improved
