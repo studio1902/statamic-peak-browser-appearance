@@ -2,7 +2,7 @@
 
 # Statamic Peak Browser Appearance
 
-**This addon deprecated and archived. It's funcitonality now resides with in [Statamic Peak Tools](https://githbu.com/studio1902/statamic-peak-tools).**
+**This addon deprecated and archived. It's funcitonality now resides with in [Statamic Peak Tools](https://github.com/studio1902/statamic-peak-tools).**
 
 This is an addon for [Statamic Peak](https://github.com/studio1902/statamic-peak) that contains the browser appearance fieldsets, partials and listener.
 
